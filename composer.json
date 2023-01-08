@@ -1,6 +1,6 @@
 {
     "name": "liberty/html-builder",
-    "description": "test",
+    "description": "Библиотека для програмной генерации HTML страниц",
     "type": "library",
     "license": "MIT",
     "autoload": {
