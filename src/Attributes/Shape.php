@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace Liberty\HtmlBuilder\Attributes;
 
+use \Liberty\HtmlBuilder\Attributes\Enums;
+
 /**
  * Трейт Shape
  * @version 0.0.1
@@ -15,6 +17,8 @@ namespace Liberty\HtmlBuilder\Attributes;
 trait Shape
 {
 
+    use Enums;
+
     protected ?string $shape = null;
 
     /**
@@ -24,12 +28,7 @@ trait Shape
      */
     public function shape(string $shape): self
     {
-        $this->shape = match ($shape) {
-            'circle' => 'circle',
-            'poly' => 'poly',
-            'rect' => 'rect',
-            default => 'default'
-        };
+        $this->shape = $this->setEnums('Shape', $shape);
         return $this;
     }
 

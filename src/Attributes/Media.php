@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace Liberty\HtmlBuilder\Attributes;
 
+use \Liberty\HtmlBuilder\Attributes\Enums;
+
 /**
  * Трейт Media
  * @version 0.0.1
@@ -20,7 +22,7 @@ trait Media
     protected ?string $media = null;
 
     /**
-     * Определяет устройство, для которого будет воспроизводиться файл. 
+     * Определяет устройство, для которого будет воспроизводиться файл.
      * @param string $media
      * @return self
      */

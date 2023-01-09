@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace Liberty\HtmlBuilder\Attributes;
 
+use \Liberty\HtmlBuilder\Attributes\Enums;
+
 /**
  * Трейт HrefLang
  * @version 0.0.1
@@ -15,6 +17,8 @@ namespace Liberty\HtmlBuilder\Attributes;
 trait HrefLang
 {
 
+    use Enums;
+
     protected ?string $hreflang = null;
 
     /**
@@ -24,7 +28,7 @@ trait HrefLang
      */
     public function hreflang(string $lang): self
     {
-        $this->hreflang = $lang;
+        $this->hreflang = $this->setEnums('LangCodes', $lang);
         return $this;
     }
 

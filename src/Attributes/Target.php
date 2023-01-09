@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Liberty\HtmlBuilder\Attributes;
 
-use Enums;
+use \Liberty\HtmlBuilder\Attributes\Enums;
 
 /**
  * Трейт Target

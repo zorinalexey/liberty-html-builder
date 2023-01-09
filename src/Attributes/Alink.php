@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace Liberty\HtmlBuilder\Attributes;
 
+use \Liberty\HtmlBuilder\Attributes\Enums;
+
 /**
  * Трейт Alink
  * @version 0.0.1

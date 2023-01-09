@@ -26,8 +26,8 @@ final class HTMLv5 extends AbstractTag
         Lang,
         Manifest;
 
-    private ?Head $head;
-    private ?Body $body;
+    private ?Head $head = null;
+    private ?Body $body = null;
 
     public function head(): Head
     {
