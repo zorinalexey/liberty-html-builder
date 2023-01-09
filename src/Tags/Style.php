@@ -24,7 +24,7 @@ final class Style extends AbstractTag
 
     public function __construct(string|AbstractTag $content)
     {
-        $this->content($content);
+        $this->setContent($content);
     }
 
     public function __toString()

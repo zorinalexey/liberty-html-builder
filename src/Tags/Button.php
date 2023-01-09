@@ -46,7 +46,7 @@ final class Button extends AbstractTag
 
     public function __construct(string|AbstractTag $content = null)
     {
-        $this->content($content);
+        $this->setContent($content);
     }
 
     public function __toString()

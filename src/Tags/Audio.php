@@ -34,7 +34,7 @@ final class Audio extends AbstractTag
     public function __construct(string|null|AbstractTag $content = null)
     {
         $this->str .= '<audio';
-        $this->content[] = $content;
+        $this->setContent[] = $content;
     }
 
     public function __toString()
@@ -55,7 +55,7 @@ final class Audio extends AbstractTag
     public function source(): Source
     {
         $source = new Source();
-        $this->content[] = $source;
+        $this->setContent[] = $source;
         return $source;
     }
 
@@ -68,7 +68,7 @@ final class Audio extends AbstractTag
     public function a(?string $url = null, string|null|AbstractTag $content = null): A
     {
         $a = new A($url, $content);
-        $this->content[] = $a;
+        $this->setContent[] = $a;
         return $a;
     }
 

@@ -22,7 +22,7 @@ final class H3 extends AbstractTag
 
     public function __construct(string|null|AbstractTag $content = null)
     {
-        $this->content($content);
+        $this->setContent($content);
     }
 
     public function __toString()

@@ -49,7 +49,7 @@ final class Frameset extends AbstractTag
     public function frame(): Frame
     {
         $frame = new Frame();
-        $this->content[] = $frame;
+        $this->setContent[] = $frame;
         return $frame;
     }
 

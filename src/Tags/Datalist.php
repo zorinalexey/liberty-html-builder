@@ -38,7 +38,7 @@ final class Datalist extends AbstractTag
     public function option(string|null|AbstractTag $content = null): Option
     {
         $options = new Option($content);
-        $this->content[] = $options;
+        $this->setContent[] = $options;
         return $options;
     }
 

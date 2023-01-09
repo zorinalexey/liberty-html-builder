@@ -44,7 +44,7 @@ final class Head extends AbstractBlocks
     public function base(string $type, string $content): Base
     {
         $base = new Base($type, $content);
-        $this->content[] = $base;
+        $this->setContent[] = $base;
         return $base;
     }
 
@@ -59,7 +59,7 @@ final class Head extends AbstractBlocks
     public function basefont(): Basefont
     {
         $basefont = new Basefont();
-        $this->content[] = $basefont;
+        $this->setContent[] = $basefont;
         return $basefont;
     }
 
@@ -70,7 +70,7 @@ final class Head extends AbstractBlocks
     public function link(): Link
     {
         $link = new Link();
-        $this->content[] = $link;
+        $this->setContent[] = $link;
         return $link;
     }
 
@@ -86,7 +86,7 @@ final class Head extends AbstractBlocks
     public function meta(): Meta
     {
         $meta = new Meta();
-        $this->content[] = $meta;
+        $this->setContent[] = $meta;
         return $meta;
     }
 
@@ -108,7 +108,7 @@ final class Head extends AbstractBlocks
     public function script(string|null|AbstractTag $content = null): Script
     {
         $script = new Script($content);
-        $this->content[] = $script;
+        $this->setContent[] = $script;
         return $script;
     }
 
@@ -122,7 +122,7 @@ final class Head extends AbstractBlocks
     public function style(string|AbstractTag $content): Style
     {
         $style = new Style($content);
-        $this->content[] = $style;
+        $this->setContent[] = $style;
         return $style;
     }
 

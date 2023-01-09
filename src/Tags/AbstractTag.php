@@ -15,19 +15,19 @@ namespace Liberty\HtmlBuilder\Tags;
 abstract class AbstractTag
 {
 
-    protected mixed $content = null;
+    protected mixed $setContent = null;
 
     /**
      * Задать контент тега
-     * @param string|null $content
+     * @param string|null $setContent
      * @return self
      */
-    protected function content(string|null|AbstractTag $content = null): self
+    protected function setContent(string|null|AbstractTag $setContent = null): self
     {
-        if ( ! $this->content) {
-            $this->content = $content;
+        if ( ! $this->setContent) {
+            $this->setContent = $setContent;
         } else {
-            $this->content .= $content;
+            $this->setContent .= $setContent;
         }
         return $this;
     }
@@ -43,11 +43,11 @@ abstract class AbstractTag
         $this->str .= $this->setTagAttrubutes($this);
         $this->str .= ">";
         if ($close) {
-            if ($this->content) {
-                if (is_string($this->content)) {
-                    $this->str .= $this->content;
+            if ($this->setContent) {
+                if (is_string($this->setContent)) {
+                    $this->str .= $this->setContent;
                 } else {
-                    foreach ($this->content as $item) {
+                    foreach ($this->setContent as $item) {
                         $this->str .= (string)$item;
                     }
                 }
@@ -61,7 +61,7 @@ abstract class AbstractTag
     {
         $str = '';
         foreach ($attributes as $key => $value) {
-            if ($value !== null && $key !== 'content' && $key !== 'str') {
+            if ($value !== null && $key !== 'setContent' && $key !== 'str') {
                 $str .= ' ' . $key;
                 if ($key !== $value OR in_array($key, self::$ignogeAttrubutes)) {
                     $str .= '="';

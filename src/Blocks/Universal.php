@@ -51,7 +51,7 @@ trait Universal
     public function a(?string $url = null, string|null|AbstractTag $content = null): A
     {
         $a = new A($url, $content);
-        $this->content[] = $a;
+        $this->setContent[] = $a;
         return $a;
     }
 
@@ -70,7 +70,7 @@ trait Universal
     public function abbr(string|null|AbstractTag $content = null): Abbr
     {
         $abbr = new Abbr($content);
-        $this->content[] = $abbr;
+        $this->setContent[] = $abbr;
         return $abbr;
     }
 
@@ -87,7 +87,7 @@ trait Universal
     public function acronym(string|null|AbstractTag $content = null): Acronym
     {
         $acronym = new Acronym($content);
-        $this->content[] = $acronym;
+        $this->setContent[] = $acronym;
         return $acronym;
     }
 
@@ -106,7 +106,7 @@ trait Universal
     public function address(string|null|AbstractTag $content = null): Address
     {
         $address = new Address($content);
-        $this->content[] = $address;
+        $this->setContent[] = $address;
         return $address;
     }
 
@@ -122,7 +122,7 @@ trait Universal
     public function applet(string|null|AbstractTag $content = null): Applet
     {
         $applet = new Applet($content);
-        $this->content[] = $applet;
+        $this->setContent[] = $applet;
         return $applet;
     }
 
@@ -137,7 +137,7 @@ trait Universal
     public function audio(string|null|AbstractTag $content = null): Audio
     {
         $audio = new Audio($content);
-        $this->content[] = $audio;
+        $this->setContent[] = $audio;
         return $audio;
     }
 
@@ -151,7 +151,7 @@ trait Universal
     public function b(string|AbstractTag $content): B
     {
         $b = new B($content);
-        $this->content[] = $b;
+        $this->setContent[] = $b;
         return $b;
     }
 
@@ -167,7 +167,7 @@ trait Universal
     public function basefont(string|AbstractTag $content): Basefont
     {
         $basefont = new Basefont($content);
-        $this->content[] = $basefont;
+        $this->setContent[] = $basefont;
         return $basefont;
     }
 
@@ -181,7 +181,7 @@ trait Universal
     public function bdi(string|AbstractTag $content): Bdi
     {
         $bdi = new Bdi($content);
-        $this->content[] = $bdi;
+        $this->setContent[] = $bdi;
         return $bdi;
     }
 
@@ -195,7 +195,7 @@ trait Universal
     public function bdo(string|AbstractTag $content): Bdo
     {
         $bdo = new Bdo($content);
-        $this->content[] = $bdo;
+        $this->setContent[] = $bdo;
         return $bdo;
     }
 
@@ -216,7 +216,7 @@ trait Universal
     public function big(string|AbstractTag $content): Big
     {
         $big = new Big($content);
-        $this->content[] = $big;
+        $this->setContent[] = $big;
         return $big;
     }
 
@@ -228,7 +228,7 @@ trait Universal
     public function blink(string|AbstractTag $content): Blink
     {
         $big = new Blink($content);
-        $this->content[] = $big;
+        $this->setContent[] = $big;
         return $big;
     }
 
@@ -242,7 +242,7 @@ trait Universal
     public function blockquote(string|AbstractTag $content): Blockquote
     {
         $big = new Blockquote($content);
-        $this->content[] = $big;
+        $this->setContent[] = $big;
         return $big;
     }
 
@@ -258,7 +258,7 @@ trait Universal
     public function br(): Br
     {
         $br = new Br();
-        $this->content[] = $br;
+        $this->setContent[] = $br;
         return $br;
     }
 

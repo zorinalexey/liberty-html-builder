@@ -39,7 +39,7 @@ final class Dl extends AbstractTag
     public function dd(string|null|AbstractTag $content = null): Dd
     {
         $dd = new Dd($content);
-        $this->content[] = $dd;
+        $this->setContent[] = $dd;
         return $dd;
     }
 
@@ -55,7 +55,7 @@ final class Dl extends AbstractTag
     public function dt(string|null|AbstractTag $content = null): Dt
     {
         $dd = new Dt($content);
-        $this->content[] = $dd;
+        $this->setContent[] = $dd;
         return $dd;
     }
 

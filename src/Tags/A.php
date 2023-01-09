@@ -45,7 +45,7 @@ final class A extends AbstractTag
     public function __construct(?string $url = null, string|null|AbstractTag $content = null)
     {
         $this->href($url);
-        $this->content($content);
+        $this->setContent($content);
     }
 
     public function __toString()

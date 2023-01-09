@@ -40,7 +40,7 @@ final class HTMLv5 extends AbstractTag
     public function body(): Body
     {
         if ( ! $this->body) {
-            $this->body = Body::instance(Body::class);
+            $this->body = Body::instance();
         }
         return $this->body;
     }
