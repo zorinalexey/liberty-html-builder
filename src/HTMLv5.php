@@ -32,7 +32,7 @@ final class HTMLv5 extends AbstractTag
     public function head(): Head
     {
         if ( ! $this->head) {
-            $this->head = new Head();
+            $this->head = Head::instance($this);
         }
         return $this->head;
     }
@@ -40,7 +40,7 @@ final class HTMLv5 extends AbstractTag
     public function body(): Body
     {
         if ( ! $this->body) {
-            $this->body = new Body();
+            $this->body = Body::instance($this);
         }
         return $this->body;
     }

@@ -70,7 +70,7 @@ abstract class AbstractTag
                     } elseif ($value === false) {
                         $str .= 'false';
                     } else {
-                        $str .= (string)$value;
+                        $str .= str_replace('"', "\'", (string)$value);
                     }
                     $str .= '"';
                 }

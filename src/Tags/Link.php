@@ -4,10 +4,13 @@ declare(strict_types = 1);
 
 namespace Liberty\HtmlBuilder\Tags;
 
-use \Liberty\HtmlBuilder\Attributes\Color;
-use \Liberty\HtmlBuilder\Attributes\Face;
-use \Liberty\HtmlBuilder\Attributes\Size;
 use \Liberty\HtmlBuilder\Tags\AbstractTag;
+use \Liberty\HtmlBuilder\Attributes\Type;
+use \Liberty\HtmlBuilder\Attributes\Size;
+use \Liberty\HtmlBuilder\Attributes\Rel;
+use \Liberty\HtmlBuilder\Attributes\Media;
+use \Liberty\HtmlBuilder\Attributes\Href;
+use \Liberty\HtmlBuilder\Attributes\Charset;
 
 /**
  * Класс A
@@ -17,16 +20,19 @@ use \Liberty\HtmlBuilder\Tags\AbstractTag;
  * @author Зорин Алексей <zorinalexey59292@gmail.com>
  * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
  */
-final class Basefont extends AbstractTag
+final class Link extends AbstractTag
 {
 
-    use Color,
-        Face,
-        Size;
+    use Charset,
+        Href,
+        Media,
+        Rel,
+        Size,
+        Type;
 
     public function __toString()
     {
-        return $this->stringify('basefont', false);
+        return $this->stringify('link', false);
     }
 
 }

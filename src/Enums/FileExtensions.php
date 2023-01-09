@@ -275,5 +275,7 @@ return[
     'zip' => 'multipart/x-zip',
     'checkbox',
     'radio',
-    'command'
+    'command',
+    'text/javascript',
+    'text/vbscript'
 ];
