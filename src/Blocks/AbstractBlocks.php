@@ -24,13 +24,12 @@ abstract class AbstractBlocks extends AbstractTag
 
     private static array $instances = [];
 
-    public static function instance(object $class)
+    public static function instance(string $class)
     {
-        $calledClass = md5($class::class);
-        if ( ! isset(self::$instances[$calledClass])) {
-            self::$instances[$calledClass] = new self();
+        if ( ! isset(self::$instances[$class])) {
+            self::$instances[$class] = new $class();
         }
-        return self::$instances[$calledClass];
+        return self::$instances[$class];
     }
 
 }
