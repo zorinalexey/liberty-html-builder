@@ -5,8 +5,7 @@ declare(strict_types = 1);
 use \Liberty\HtmlBuilder\Tags\AbstractTag;
 
 /**
- 
- * @version 0.0.1
+ *@version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!
  * @author Зорин Алексей <zorinalexey59292@gmail.com>

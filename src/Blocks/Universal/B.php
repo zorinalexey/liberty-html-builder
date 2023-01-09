@@ -15,7 +15,6 @@ use \Liberty\HtmlBuilder\Tags\Br;
 use \Liberty\HtmlBuilder\Tags\Button;
 
 /**
- 
  * @version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!
@@ -128,6 +127,21 @@ trait B
         $big = new Blockquote($content);
         $this->setContent[] = $big;
         return $big;
+    }
+
+    /**
+     * Тег <br> устанавливает перевод строки в том месте, где этот тег находится.
+     * В отличие от тега абзаца <p>, использование тега <br> не добавляет пустой
+     * отступ перед строкой. Если текст, в котором используется перевод строки,
+     * обтекает плавающий элемент, то с помощью атрибута clear тега <br> можно
+     * сделать так, чтобы следующая строка начиналась ниже элемента.
+     * @return Br
+     */
+    public function br(): Br
+    {
+        $br = new Br();
+        $this->setContent[] = $br;
+        return $br;
     }
 
     /**

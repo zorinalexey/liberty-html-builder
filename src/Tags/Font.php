@@ -8,8 +8,7 @@ use Liberty\HtmlBuilder\Attributes\Face;
 use Liberty\HtmlBuilder\Attributes\Size;
 
 /**
- 
- * @version 0.0.1
+ *@version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!
  * @author Зорин Алексей <zorinalexey59292@gmail.com>

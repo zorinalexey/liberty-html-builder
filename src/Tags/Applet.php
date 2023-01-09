@@ -17,8 +17,7 @@ use \Liberty\HtmlBuilder\Attributes\Universal AS Attributes;
 use \Liberty\HtmlBuilder\Events\Event;
 
 /**
- 
- * @version 0.0.1
+ *@version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!
  * @author Зорин Алексей <zorinalexey59292@gmail.com>
