@@ -16,7 +16,7 @@ use Liberty\HtmlBuilder\Attributes\Target;
 use \Liberty\HtmlBuilder\Attributes\Universal AS Attributes;
 
 /**
- * Класс A
+ 
  * @version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!

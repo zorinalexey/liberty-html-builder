@@ -4,14 +4,14 @@ declare(strict_types = 1);
 
 namespace Liberty\HtmlBuilder\Tags;
 
-use \Liberty\HtmlBuilder\Attributes\Universal AS Tags;
-use \Liberty\HtmlBuilder\Events\Universal AS Events;
+use \Liberty\HtmlBuilder\Attributes\Universal AS Attributes;
+use \Liberty\HtmlBuilder\Events\Event;
 use \Liberty\HtmlBuilder\Tags\AbstractTag;
 
 /**
- * Класс Abbr
+ 
  * @version 0.0.1
- * @package Liberty\HtmlBuilder\Tags
+ * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!
  * @author Зорин Алексей <zorinalexey59292@gmail.com>
  * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
@@ -19,8 +19,8 @@ use \Liberty\HtmlBuilder\Tags\AbstractTag;
 final class Acronym extends AbstractTag
 {
 
-    use Tags,
-        Events;
+    use Attributes,
+        Event;
 
     public function __construct(string|null|AbstractTag $content = null)
     {

@@ -9,9 +9,9 @@ use \Liberty\HtmlBuilder\Attributes\Target;
 use \Liberty\HtmlBuilder\Tags\AbstractTag;
 
 /**
- * Класс Abbr
+ 
  * @version 0.0.1
- * @package Liberty\HtmlBuilder\Tags
+ * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!
  * @author Зорин Алексей <zorinalexey59292@gmail.com>
  * @copyright 2022 разработчик Зорин Алексей Евгеньевич.

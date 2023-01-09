@@ -12,7 +12,7 @@ use \Liberty\HtmlBuilder\Attributes\Universal AS Attributes;
 use \Liberty\HtmlBuilder\Tags\AbstractTag;
 
 /**
- * Класс HTMLv5
+ 
  * @version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!

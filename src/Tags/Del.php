@@ -9,7 +9,7 @@ use \Liberty\HtmlBuilder\Tags\Cite;
 use \Liberty\HtmlBuilder\Tags\Datetime;
 
 /**
- * Класс A
+ 
  * @version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!

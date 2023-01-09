@@ -13,13 +13,13 @@ use \Liberty\HtmlBuilder\Attributes\Height;
 use \Liberty\HtmlBuilder\Attributes\Hspace;
 use \Liberty\HtmlBuilder\Attributes\Vspace;
 use \Liberty\HtmlBuilder\Attributes\Archive;
-use \Liberty\HtmlBuilder\Attributes\Universal AS Tags;
-use \Liberty\HtmlBuilder\Events\Universal AS Events;
+use \Liberty\HtmlBuilder\Attributes\Universal AS Attributes;
+use \Liberty\HtmlBuilder\Events\Event;
 
 /**
- * Класс Abbr
+ 
  * @version 0.0.1
- * @package Liberty\HtmlBuilder\Tags
+ * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!
  * @author Зорин Алексей <zorinalexey59292@gmail.com>
  * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
@@ -28,11 +28,11 @@ final class Applet extends AbstractTag
 {
 
     use Alt,
-        Tags,
+        Attributes,
         Code,
         Align,
         Width,
-        Events,
+        Event,
         Height,
         Hspace,
         Vspace,

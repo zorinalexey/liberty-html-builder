@@ -12,9 +12,9 @@ use \Liberty\HtmlBuilder\Tags\Basefont;
 use \Liberty\HtmlBuilder\Blocks\AbstractBlocks;
 
 /**
- * Класс Head
+ 
  * @version 0.0.1
- * @package Liberty\HtmlBuilder\Blocks
+ * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!
  * @author Зорин Алексей <zorinalexey59292@gmail.com>
  * @copyright 2022 разработчик Зорин Алексей Евгеньевич.

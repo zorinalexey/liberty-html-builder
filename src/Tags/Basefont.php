@@ -10,7 +10,7 @@ use \Liberty\HtmlBuilder\Attributes\Size;
 use \Liberty\HtmlBuilder\Tags\AbstractTag;
 
 /**
- * Класс A
+ 
  * @version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!

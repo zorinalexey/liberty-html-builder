@@ -6,7 +6,7 @@ use \Liberty\HtmlBuilder\Tags\AbstractTag;
 use \Liberty\HtmlBuilder\Blocks\Universal AS Blocks;
 
 /**
- * Класс A
+ 
  * @version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!

@@ -16,11 +16,11 @@ use \Liberty\HtmlBuilder\Attributes\Formenctype;
 use \Liberty\HtmlBuilder\Attributes\Formnovalidate;
 use \Liberty\HtmlBuilder\Attributes\Universal AS Attributes;
 use \Liberty\HtmlBuilder\Attributes\Form AS FormAttrubute;
-use \Liberty\HtmlBuilder\Events\Universal AS Events;
+use \Liberty\HtmlBuilder\Events\Event;
 use \Liberty\HtmlBuilder\Tags\AbstractTag;
 
 /**
- * Класс A
+ 
  * @version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!
@@ -39,7 +39,7 @@ final class Button extends AbstractTag
         Formaction,
         Autofocus,
         Disabled,
-        Events,
+        Event,
         Value,
         Type,
         Name;

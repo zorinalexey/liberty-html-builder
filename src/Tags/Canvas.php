@@ -7,11 +7,11 @@ namespace Liberty\HtmlBuilder\Tags;
 use \Liberty\HtmlBuilder\Attributes\Height;
 use \Liberty\HtmlBuilder\Attributes\Width;
 use \Liberty\HtmlBuilder\Attributes\Universal AS Attributes;
-use \Liberty\HtmlBuilder\Events\Universal AS Events;
+use \Liberty\HtmlBuilder\Events\Event;
 use \Liberty\HtmlBuilder\Tags\AbstractTag;
 
 /**
- * Класс A
+ 
  * @version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!
@@ -22,7 +22,7 @@ final class Canvas extends AbstractTag
 {
 
     use Attributes,
-        Events,
+        Event,
         Height,
         Width;
 

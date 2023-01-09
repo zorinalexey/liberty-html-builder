@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace Liberty\HtmlBuilder\Tags;
 
-use \Liberty\HtmlBuilder\Attributes\Universal AS Tags;
-use \Liberty\HtmlBuilder\Events\Universal AS Events;
+use \Liberty\HtmlBuilder\Attributes\Universal AS Attributes;
+use \Liberty\HtmlBuilder\Events\Event;
 use \Liberty\HtmlBuilder\Tags\AbstractTag;
 
 /**
- * Класс A
+ 
  * @version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!
@@ -19,8 +19,8 @@ use \Liberty\HtmlBuilder\Tags\AbstractTag;
 final class Bdi extends AbstractTag
 {
 
-    use Tags,
-        Events;
+    use Attributes,
+        Event;
 
     public function __construct(string|null|AbstractTag $content = null)
     {

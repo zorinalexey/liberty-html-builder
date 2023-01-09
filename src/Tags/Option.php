@@ -9,11 +9,11 @@ use \Liberty\HtmlBuilder\Attributes\Selected;
 use \Liberty\HtmlBuilder\Attributes\Label;
 use \Liberty\HtmlBuilder\Attributes\Value;
 use \Liberty\HtmlBuilder\Attributes\Universal AS Attributes;
-use \Liberty\HtmlBuilder\Events\Universal AS Events;
+use \Liberty\HtmlBuilder\Events\Event;
 use \Liberty\HtmlBuilder\Tags\AbstractTag;
 
 /**
- * Класс A
+ 
  * @version 0.0.1
  * @package Liberty\HtmlBuilder
  * @generated Зорин Алексей, please DO NOT EDIT!
@@ -28,7 +28,7 @@ final class Option extends AbstractTag
         Disabled,
         Selected,
         Attributes,
-        Events;
+        Event;
 
     public function __construct(string|null|AbstractTag $content = null)
     {
