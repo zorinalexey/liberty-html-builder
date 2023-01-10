@@ -1,32 +1,20 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Liberty\HtmlBuilder\Attributes;
 
-/**
- * @version 0.0.1
- * @package Liberty\HtmlBuilder
- * @generated Зорин Алексей, please DO NOT EDIT!
- * @author Зорин Алексей <zorinalexey59292@gmail.com>
- * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
- */
 trait Controls
 {
-
-    protected ?string $controls = null;
-
     /**
-     * Добавляет панель управления к аудиофайлу.
-     * @param bool $controls true - добавить панель
-     * @return self
+     * Атрибут controls является логическим атрибутом.
+     * При наличии, он указывает, что аудио/видео элементы controls должны отображаться.
+     * @param bool $flag
+     * @return $this
      */
-    public function controls(bool $controls): self
+    public function controls(bool $flag = true): self
     {
-        if ($controls) {
-            $this->controls = 'controls';
+        if ($flag) {
+            $this->attributes['controls'] = $flag;
         }
         return $this;
     }
-
 }

@@ -1,30 +1,18 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Liberty\HtmlBuilder\Attributes;
 
-/**
- * @version 0.0.1
- * @package Liberty\HtmlBuilder
- * @generated Зорин Алексей, please DO NOT EDIT!
- * @author Зорин Алексей <zorinalexey59292@gmail.com>
- * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
- */
 trait Rev
 {
-
-    protected ?string $rev = null;
-
     /**
-     * Отношения между текущим и ссылаемым документами.
-     * @param string $rev
-     * @return self
+     * Не поддерживается в HTML5.
+     * Указывает связь между связанным документом и текущим документом
+     * @param string $text text
+     * @return $this
      */
-    public function rev(string $rev): self
+    public function rev(string $text): self
     {
-        $this->rev = $rev;
+        $this->attributes['rev'] = $text;
         return $this;
     }
-
 }

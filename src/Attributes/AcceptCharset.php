@@ -1,28 +1,19 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Liberty\HtmlBuilder\Attributes;
 
-/**
- * @version 0.0.1
- * @package Liberty\HtmlBuilder
- * @generated Зорин Алексей, please DO NOT EDIT!
- * @author Зорин Алексей <zorinalexey59292@gmail.com>
- * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
- */
 trait AcceptCharset
 {
-
     /**
-     * Устанавливает кодировку, в которой сервер может принимать и обрабатывать данные.
+     * Атрибут accept-charset задает кодировки символов, которые должны использоваться для отправки формы.
+     * Значением по умолчанию является зарезервированная строка "UNKNOWN" (указывает, что кодировка соответствует
+     * кодировке документа, содержащего элемент <form>).
      * @param string $charset
-     * @return self
+     * @return $this
      */
-    public function acceptCharset(string $charset = 'UTF-8'): self
+    public function acceptCharset(string $charset): self
     {
-        $this->{'accept-charset'} = strtoupper($charset);
+        $this->attributes['accept-charset'] = $charset;
         return $this;
     }
-
 }

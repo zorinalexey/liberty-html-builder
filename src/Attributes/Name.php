@@ -1,30 +1,18 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Liberty\HtmlBuilder\Attributes;
 
-/**
- * @version 0.0.1
- * @package Liberty\HtmlBuilder
- * @generated Зорин Алексей, please DO NOT EDIT!
- * @author Зорин Алексей <zorinalexey59292@gmail.com>
- * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
- */
 trait Name
 {
-
-    protected ?string $name = null;
-
     /**
-     * Устанавливает имя якоря внутри документа.
-     * @param string $name
-     * @return self
+     * Не поддерживается в HTML5. Использовать глобальный id
+     * Задает имя привязки
+     * @param string $name section_name
+     * @return $this
      */
     public function name(string $name): self
     {
-        $this->name = $name;
+        $this->attributes['name'] = $name;
         return $this;
     }
-
 }

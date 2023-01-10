@@ -1,33 +1,24 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Liberty\HtmlBuilder\Blocks;
 
-use \Liberty\HtmlBuilder\Attributes\Alink;
-use \Liberty\HtmlBuilder\Blocks\AbstractBlocks;
-use \Liberty\HtmlBuilder\Events\Event;
-use \Liberty\HtmlBuilder\Attributes\Universal AS Attributes;
-use \Liberty\HtmlBuilder\Blocks\Universal AS Tags;
+use Liberty\HtmlBuilder\Elements\Blocks\A;
+use Liberty\HtmlBuilder\Globals\Globals;
+use Liberty\HtmlBuilder\Main\AbstractElement;
+use Liberty\HtmlBuilder\Main\Children;
+use Liberty\HtmlBuilder\Main\GetParent;
 
-/**
- * @version 0.0.1
- * @package Liberty\HtmlBuilder
- * @generated Зорин Алексей, please DO NOT EDIT!
- * @author Зорин Алексей <zorinalexey59292@gmail.com>
- * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
- */
-final class Body extends AbstractBlocks
+class Body extends AbstractElement
 {
+    use Children, GetParent, Globals;
 
-    use Alink,
-        Event,
-        Attributes,
-        Tags;
-
-    public function __toString()
+    public function __toString(): string
     {
         return $this->stringify('body');
     }
 
+    public function a(): A
+    {
+        return $this->getTag(A::class);
+    }
 }

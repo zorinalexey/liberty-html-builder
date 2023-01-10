@@ -1,24 +1,20 @@
 {
-    "name": "liberty/html-builder",
-    "description": "Библиотека для програмной генерации HTML страниц",
-    "type": "library",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Liberty\\HtmlBuilder\\": "src/"
-        },
-        "files": [
-            "src/Main/defines.php"
-        ]
-    },
-    "authors": [
-        {
-            "name": "Алексей Зорин",
-            "email": "zorinalexey59292@gmail.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "require": {
-        "php": ">=8.0"
+  "name": "liberty/html-builder",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "alexey",
+      "email": "email@example.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Liberty\\HtmlBuilder\\": "src/"
+    }
+  },
+  "require": {
+    "php": "8.*"
+  }
 }

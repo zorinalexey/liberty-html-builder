@@ -1,30 +1,17 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Liberty\HtmlBuilder\Attributes;
 
-/**
- * @version 0.0.1
- * @package Liberty\HtmlBuilder
- * @generated Зорин Алексей, please DO NOT EDIT!
- * @author Зорин Алексей <zorinalexey59292@gmail.com>
- * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
- */
 trait Alt
 {
-
-    protected ?string $alt = null;
-
     /**
-     * Альтернативный текст.
-     * @param string $value Любая подходящяя текстовая строка
-     * @return self
+     * Задает альтернативный текст при неудачном отображении исходного элемента
+     * @param string $text
+     * @return $this
      */
-    public function alt(string $value): self
+    public function alt(string $text): self
     {
-        $this->alt = $value;
+        $this->attributes['alt'] = $text;
         return $this;
     }
-
 }

@@ -1,35 +1,20 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Liberty\HtmlBuilder\Attributes;
 
-/**
- * @version 0.0.1
- * @package Liberty\HtmlBuilder
- * @generated Зорин Алексей, please DO NOT EDIT!
- * @author Зорин Алексей <zorinalexey59292@gmail.com>
- * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
- */
 trait Border
 {
-
-    protected ?int $border = null;
-
     /**
-     * Устанавливает толщину границы между фреймами. По умолчанию линия отображается
-     * трехмерной, используя атрибуты bordercolor и border можно настроить ее вид по
-     * своему усмотрению. Браузеры по-разному интерпретируют атрибуты
-     * тега <frameset> и показывают линию.
-     * @param int $border Целое положительное число. Значение 0 скрывает рамку.
-     * @return self
+     * Не поддерживается в HTML 5.
+     * Задает ширину границы элемента. Вместо этого используйте CSS
+     * @param int|null $width
+     * @return $this
      */
-    public function border(int $border): self
+    public function border(int $width = null): self
     {
-        if ($border >= 0) {
-            $this->border = $border;
+        if ($width >= 0) {
+            $this->attributes['border'] = $width;
         }
         return $this;
     }
-
 }

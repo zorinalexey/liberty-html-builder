@@ -1,32 +1,20 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Liberty\HtmlBuilder\Attributes;
 
-/**
- * @version 0.0.1
- * @package Liberty\HtmlBuilder
- * @generated Зорин Алексей, please DO NOT EDIT!
- * @author Зорин Алексей <zorinalexey59292@gmail.com>
- * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
- */
 trait Checked
 {
-
-    protected ?string $checked = null;
-
     /**
-     * Активирует команду. Доступно только если type установлен как radio или checkbox.
-     * @param string $checked true - активно (Выбрано)
-     * @return self
+     * Указывает, что <input> элемент должен быть предварительно выбран при загрузке страницы
+     * (Для type="checkbox" или type="radio")
+     * @param bool $checked
+     * @return $this
      */
-    public function checked(bool $checked): self
+    public function checked(bool $checked = true): self
     {
         if ($checked) {
-            $this->checked = 'checked';
+            $this->attributes['checked'] = $checked;
         }
         return $this;
     }
-
 }

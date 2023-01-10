@@ -1,34 +1,25 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Liberty\HtmlBuilder\Attributes;
 
-use \Liberty\HtmlBuilder\Attributes\Enums;
+use Liberty\HtmlBuilder\Main\Enums;
 
-/**
- * @version 0.0.1
- * @package Liberty\HtmlBuilder
- * @generated Зорин Алексей, please DO NOT EDIT!
- * @author Зорин Алексей <zorinalexey59292@gmail.com>
- * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
- */
 trait Target
 {
-
     use Enums;
 
-    protected ?string $target = null;
-
     /**
-     * Имя окна или фрейма, куда браузер будет загружать документ.
-     * @param string $target
-     * @return self
+     * Указывает, где открыть связанный документ
+     * @param string $target _blank|_parent|_self|_top|blank|parent|self|top|имя фрейма
+     * @return $this
      */
     public function target(string $target): self
     {
-        $this->target = $this->setEnums('Target', $target);
+        $this->attributes['target'] = $this->enums('Target', $target);
+        if (!$this->attributes['target']) {
+            $this->attributes['target'] = $target;
+        }
         return $this;
-    }
 
+    }
 }

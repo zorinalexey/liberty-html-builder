@@ -1,29 +1,22 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Liberty\HtmlBuilder\Attributes;
 
-/**
- * @version 0.0.1
- * @package Liberty\HtmlBuilder
- * @generated Зорин Алексей, please DO NOT EDIT!
- * @author Зорин Алексей <zorinalexey59292@gmail.com>
- * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
- */
 trait Datetime
 {
-
-    protected ?string $datetime = null;
-
-    public function datetime(int|string $date): self
+    /**
+     * Указывает дату и время
+     * @param string|int $datetime
+     * @return $this
+     */
+    public function datetime(string|int $datetime): self
     {
-        if (is_int($date)) {
-            $this->datetime = date('Y-m-dTH:i', $date);
+        $format = 'Y-m-d\TH:i:s';
+        if (is_int($datetime)) {
+            $this->attributes['datetime'] = date($format, $datetime);
         } else {
-            $this->datetime = date('Y-m-dTH:i', strtotime($date));
+            $this->attributes['datetime'] = date($format, strtotime($datetime));
         }
         return $this;
     }
-
 }

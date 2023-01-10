@@ -1,33 +1,19 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Liberty\HtmlBuilder\Attributes;
 
-/**
- * @version 0.0.1
- * @package Liberty\HtmlBuilder
- * @generated Зорин Алексей, please DO NOT EDIT!
- * @author Зорин Алексей <zorinalexey59292@gmail.com>
- * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
- */
 trait Cols
 {
-
-    protected ?string $cols = null;
-
     /**
-     * Задает размеры или пропорции колонок фреймов в структуре <frameset>.
-     * Если создаются несколько колонок, то для атрибута cols необходимо
-     * установить определенное значение.
-     * @param int ... Значения, перечисленные через запятую     *
-     * @return self
+     * Определяет видимую ширину текстовой области
+     * @param int $cols цвет кода css
+     * @return $this
      */
-    public function cols(): self
+    public function cols(int $cols): self
     {
-        $args = func_get_args();
-        $this->cols = implode(', ', $args);
+        if ($cols > 0) {
+            $this->attributes['cols'] = $cols;
+        }
         return $this;
     }
-
 }

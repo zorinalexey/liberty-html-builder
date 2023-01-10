@@ -1,34 +1,24 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Liberty\HtmlBuilder\Attributes;
 
-use \Liberty\HtmlBuilder\Attributes\Enums;
+use Liberty\HtmlBuilder\Main\Enums;
 
-/**
- * @version 0.0.1
- * @package Liberty\HtmlBuilder
- * @generated Зорин Алексей, please DO NOT EDIT!
- * @author Зорин Алексей <zorinalexey59292@gmail.com>
- * @copyright 2022 разработчик Зорин Алексей Евгеньевич.
- */
 trait Rel
 {
-
     use Enums;
 
-    protected mixed $rel = null;
-
     /**
-     * Отношения между ссылаемым и текущим документами.
-     * @param string $rel
-     * @return self
+     * Указывает связь между текущим документом и связанным документом
+     * @param string $rel alternate|author|bookmark|external|help|license|next|nofollow|noopener|noreferrer|prev|search|tag
+     * @return $this
      */
     public function rel(string $rel): self
     {
-        $this->rel = $this->setEnums('Rel', $rel);
+        $data = $this->enums('Rel', $rel);
+        if ($data !== null) {
+            $this->attributes['rel'] = $data;
+        }
         return $this;
     }
-
 }
