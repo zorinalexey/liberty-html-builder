@@ -59,7 +59,7 @@ class HTML extends AbstractElement
 
     public function childs(string|null $tagName = null): false|array|AbstractElement
     {
-        return $this->children[$tagName][1]?? false;
+        return $this->children[$tagName][1] ?? false;
     }
 
 

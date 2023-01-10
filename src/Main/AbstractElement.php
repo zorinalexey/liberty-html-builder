@@ -45,7 +45,7 @@ abstract class AbstractElement
      * Получить потомков
      * @param string $tagName
      */
-    public function childs(string|null $tagName = null):false|array|AbstractElement
+    public function childs(string|null $tagName = null): false|array|AbstractElement
     {
         return $this->children($tagName);
     }
@@ -62,6 +62,26 @@ abstract class AbstractElement
      * @return string
      */
     abstract public function __toString(): string;
+
+    public function __get($name)
+    {
+        return HtmlBuilderException::propertyNotFound(__CLASS__ . '::' . $name);
+    }
+
+    public function __set($name, $value)
+    {
+        return HtmlBuilderException::propertyNotFound(__CLASS__ . '::' . $name);
+    }
+
+    public function __call($name, $arguments)
+    {
+        return HtmlBuilderException::methodNotFound(__CLASS__ . '::' . $name);
+    }
+
+    public function __call_static($name, $arguments)
+    {
+        return HtmlBuilderException::methodNotFound(__CLASS__ . '::' . $name);
+    }
 
     /**
      * @param string $tagName
@@ -116,7 +136,5 @@ abstract class AbstractElement
         return $this->content[$className];
     }
 
-    public function __call($name, $arguments){
-        return HtmlBuilderException::methodNotFound(__CLASS__.'::'.$name);
-    }
+
 }

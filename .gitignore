@@ -1,6 +1,7 @@
-composer.phar
 /vendor/
 /nbproject/
-example.php
 /.idea/
 /.git/
+example.php
+composer.phar
+composer.lock

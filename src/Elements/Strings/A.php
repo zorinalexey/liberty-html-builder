@@ -1,6 +1,6 @@
 <?php
 
-namespace Liberty\HtmlBuilder\Elements\Blocks;
+namespace Liberty\HtmlBuilder\Elements\Strings;
 
 use Liberty\HtmlBuilder\Attributes\Charset;
 use Liberty\HtmlBuilder\Attributes\Coords;
@@ -20,13 +20,6 @@ use Liberty\HtmlBuilder\Main\Text;
 class A extends AbstractElement
 {
     use Charset, Coords, Download, Href, Text, Media, Hreflang, Name, Ping, Rev, Rel, Shape, Globals;
-
-    public function __construct(string|AbstractElement|null $content = null)
-    {
-        if ($content) {
-            $this->text($content);
-        }
-    }
 
     public function __toString(): string
     {

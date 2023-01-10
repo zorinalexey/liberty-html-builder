@@ -2,7 +2,7 @@
 
 namespace Liberty\HtmlBuilder\Blocks;
 
-use Liberty\HtmlBuilder\Elements\Blocks\A;
+use Liberty\HtmlBuilder\Elements\Strings\A;
 use Liberty\HtmlBuilder\Globals\Globals;
 use Liberty\HtmlBuilder\Main\AbstractElement;
 use Liberty\HtmlBuilder\Main\Children;
