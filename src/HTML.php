@@ -4,13 +4,13 @@ namespace Liberty\HtmlBuilder;
 
 use Liberty\HtmlBuilder\Blocks\Body;
 use Liberty\HtmlBuilder\Blocks\Head;
-use Liberty\HtmlBuilder\Globals\Globals;
+use Liberty\HtmlBuilder\Globals\GlobalAttributesAndEvents;
 use Liberty\HtmlBuilder\Main\AbstractElement;
 use Liberty\HtmlBuilder\Main\Children;
 
 class HTML extends AbstractElement
 {
-    use Globals, Children;
+    use GlobalAttributesAndEvents, Children;
 
     public function __toString(): string
     {

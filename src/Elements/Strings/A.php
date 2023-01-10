@@ -13,13 +13,13 @@ use Liberty\HtmlBuilder\Attributes\Ping;
 use Liberty\HtmlBuilder\Attributes\Rel;
 use Liberty\HtmlBuilder\Attributes\Rev;
 use Liberty\HtmlBuilder\Attributes\Shape;
-use Liberty\HtmlBuilder\Globals\Globals;
+use Liberty\HtmlBuilder\Globals\GlobalAttributesAndEvents;
 use Liberty\HtmlBuilder\Main\AbstractElement;
 use Liberty\HtmlBuilder\Main\Text;
 
 class A extends AbstractElement
 {
-    use Charset, Coords, Download, Href, Text, Media, Hreflang, Name, Ping, Rev, Rel, Shape, Globals;
+    use Charset, Coords, Download, Href, Text, Media, Hreflang, Name, Ping, Rev, Rel, Shape, GlobalAttributesAndEvents;
 
     public function __toString(): string
     {

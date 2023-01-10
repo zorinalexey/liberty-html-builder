@@ -16,14 +16,16 @@ use Liberty\HtmlBuilder\Globals\MediaEvents;
 use Liberty\HtmlBuilder\Globals\MouseEvents;
 use Liberty\HtmlBuilder\Globals\OtherEvents;
 use Liberty\HtmlBuilder\Globals\WindowEvents;
+use Liberty\HtmlBuilder\Main\AbstractElement;
 
-class Acronym extends \Liberty\HtmlBuilder\Main\AbstractElement
+class Acronym extends AbstractElement
 {
 
-    use SetClass,Dir,Id,Lang,Style,Title,XmlLang;
+    use SetClass, Dir, Id, Lang, Style, Title, XmlLang;
 
     use ClipboardEvents, DraggingEvents, FormEvents, KeyboardEvents,
         MediaEvents, MouseEvents, OtherEvents, WindowEvents;
+
     /**
      * @inheritDoc
      */

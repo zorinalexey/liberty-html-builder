@@ -2,11 +2,12 @@
 
 namespace Liberty\HtmlBuilder\Elements\Strings;
 
-use Liberty\HtmlBuilder\Globals\Globals;
+use Liberty\HtmlBuilder\Globals\GlobalAttributesAndEvents;
+use Liberty\HtmlBuilder\Main\AbstractElement;
 
-class Address extends \Liberty\HtmlBuilder\Main\AbstractElement
+class Address extends AbstractElement
 {
-    use Globals;
+    use GlobalAttributesAndEvents;
 
     /**
      * @inheritDoc
