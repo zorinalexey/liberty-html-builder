@@ -2,6 +2,7 @@
 
 namespace Liberty\HtmlBuilder\Elements\Strings;
 
+use Liberty\HtmlBuilder\Elements\StringElements;
 use Liberty\HtmlBuilder\Globals\Attributes\Dir;
 use Liberty\HtmlBuilder\Globals\Attributes\Lang;
 use Liberty\HtmlBuilder\Globals\Attributes\SetClass;
@@ -17,6 +18,9 @@ use Liberty\HtmlBuilder\Globals\MouseEvents;
 use Liberty\HtmlBuilder\Globals\OtherEvents;
 use Liberty\HtmlBuilder\Globals\WindowEvents;
 use Liberty\HtmlBuilder\Main\AbstractElement;
+use Liberty\HtmlBuilder\Main\AddText;
+use Liberty\HtmlBuilder\Main\Children;
+use Liberty\HtmlBuilder\Main\GetParent;
 
 class Acronym extends AbstractElement
 {
@@ -26,11 +30,12 @@ class Acronym extends AbstractElement
     use ClipboardEvents, DraggingEvents, FormEvents, KeyboardEvents,
         MediaEvents, MouseEvents, OtherEvents, WindowEvents;
 
-    /**
-     * @inheritDoc
-     */
-    public function __toString(): string
+    use Children, GetParent, StringElements, AddText;
+
+    public function __construct(?AbstractElement $parent = null)
     {
-        return $this->stringify('acronym');
+        parent::__construct($parent);
+        $this->tagName = 'acronym';
     }
+
 }

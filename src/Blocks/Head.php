@@ -10,9 +10,10 @@ class Head extends AbstractElement
 {
     use Children, GetParent;
 
-    public function __toString(): string
+    public function __construct(?AbstractElement $parent = null)
     {
-        return $this->stringify('head');
+        parent::__construct($parent);
+        $this->tagName = 'head';
     }
 
 }

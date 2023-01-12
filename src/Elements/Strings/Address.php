@@ -2,18 +2,22 @@
 
 namespace Liberty\HtmlBuilder\Elements\Strings;
 
+use Liberty\HtmlBuilder\Elements\StringElements;
 use Liberty\HtmlBuilder\Globals\GlobalAttributesAndEvents;
 use Liberty\HtmlBuilder\Main\AbstractElement;
+use Liberty\HtmlBuilder\Main\AddText;
+use Liberty\HtmlBuilder\Main\Children;
+use Liberty\HtmlBuilder\Main\GetParent;
 
 class Address extends AbstractElement
 {
     use GlobalAttributesAndEvents;
 
-    /**
-     * @inheritDoc
-     */
-    public function __toString(): string
+    use Children, GetParent, StringElements, AddText;
+
+    public function __construct(?AbstractElement $parent = null)
     {
-        return $this->stringify('address');
+        parent::__construct($parent);
+        $this->tagName = 'address';
     }
 }

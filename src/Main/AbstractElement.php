@@ -9,15 +9,22 @@ abstract class AbstractElement
 {
 
     /**
+     * Фарматировать вывод HTML
+     * @var bool
+     */
+    public bool $format = true;
+    /**
+     * @var string
+     */
+    protected string $tagName;
+    /**
      * @var array
      */
     protected array $content = [];
-
     /**
      * @var bool
      */
     protected bool $close = true;
-
     /**
      * @var array
      */
@@ -30,6 +37,10 @@ abstract class AbstractElement
      * @var AbstractElement|null
      */
     protected ?AbstractElement $parent = null;
+    /**
+     * @var string
+     */
+    protected string $tabs = '';
 
     /**
      * @param AbstractElement|null $parent
@@ -38,6 +49,7 @@ abstract class AbstractElement
     {
         if ($parent) {
             $this->parent = $parent;
+            $this->format = $parent->format;
         }
     }
 
@@ -58,10 +70,75 @@ abstract class AbstractElement
         return $this->__toString();
     }
 
+    public function __toString(): string
+    {
+        return $this->stringify($this->tagName);
+    }
+
+    /**
+     * @param string $tagName
+     * @return string
+     */
+    protected function stringify(string $tagName): string
+    {
+        $str = $this->getTabs() . '<' . $tagName;
+        $str .= $this->getAttrString();
+        if ($this->close) {
+            $str .= '>' . $this->getContentString();
+            $str .= $this->getTabs() . '</' . $tagName . '>';
+        } else {
+            $str .= '/>';
+        }
+        return $str;
+    }
+
+    public function getTabs(): string
+    {
+        if ($this->parent && $this->format) {
+            return $this->parent->getTabs() . "\t";
+        } elseif (!$this->parent && $this->format) {
+            return "\n";
+        } else {
+            return '';
+        }
+    }
+
     /**
      * @return string
      */
-    abstract public function __toString(): string;
+    protected function getAttrString(): string
+    {
+        $str = '';
+        foreach ($this->attributes as $key => $value) {
+            if (is_bool($value) and $value === true) {
+                $str .= ' ' . strtolower($key);
+            } elseif ($value !== null and !empty($value)) {
+                $str .= ' ' . strtolower($key) . '="' . str_replace('"', "'", $value) . '"';
+            }
+        }
+        return $str;
+    }
+
+    protected function getContentString(): string
+    {
+        $str = '';
+        foreach ($this->content as $element) {
+            if ($this->format) {
+                $str .= $this->formatContent($element);
+            } else {
+                $str .= $element;
+            }
+        }
+        return $str;
+    }
+
+    private function formatContent($element): string
+    {
+        if (is_string($element)) {
+            return $this->getTabs() . "\t" . str_replace(["\n", "\s"], '', $element);
+        }
+        return $element;
+    }
 
     public function __get($name)
     {
@@ -84,36 +161,23 @@ abstract class AbstractElement
     }
 
     /**
-     * @param string $tagName
-     * @return string
+     * Получить атрибуты элемента
+     * @return array
      */
-    protected function stringify(string $tagName): string
+    public function getAttributes(): array
     {
-        $str = '<' . $tagName;
-        $str .= $this->getAttrString();
-        if ($this->close) {
-            $str .= '>' . implode('', $this->content);
-            $str .= '</' . $tagName . '>';
-        } else {
-            $str .= '/>';
-        }
-        return $str;
+        return $this->attributes;
     }
 
     /**
-     * @return string
+     * Включить форматированый вывод html
+     * @param bool $format
+     * @return $this
      */
-    protected function getAttrString(): string
+    public function format(bool $format = true): self
     {
-        $str = '';
-        foreach ($this->attributes as $key => $value) {
-            if (is_bool($value) and $value === true) {
-                $str .= ' ' . strtolower($key);
-            } elseif ($value !== null and !empty($value)) {
-                $str .= ' ' . strtolower($key) . '="' . str_replace('"', "'", $value) . '"';
-            }
-        }
-        return $str;
+        $this->format = $format;
+        return $this;
     }
 
     /**
@@ -127,10 +191,9 @@ abstract class AbstractElement
             $this->content[$className] = $obj;
         }
         $tagName = preg_replace('~(.+)\\\\(\w+)$~ui', '$2', strtolower($className));
+        $count = 1;
         if (isset($this->children[$tagName])) {
             $count = count($this->children[$tagName]) + 1;
-        } else {
-            $count = 1;
         }
         $this->children[$tagName][$count] = $this->content[$className];
         return $this->content[$className];

@@ -13,16 +13,23 @@ use Liberty\HtmlBuilder\Attributes\Ping;
 use Liberty\HtmlBuilder\Attributes\Rel;
 use Liberty\HtmlBuilder\Attributes\Rev;
 use Liberty\HtmlBuilder\Attributes\Shape;
+use Liberty\HtmlBuilder\Elements\StringElements;
 use Liberty\HtmlBuilder\Globals\GlobalAttributesAndEvents;
 use Liberty\HtmlBuilder\Main\AbstractElement;
-use Liberty\HtmlBuilder\Main\Text;
+use Liberty\HtmlBuilder\Main\AddText;
+use Liberty\HtmlBuilder\Main\Children;
+use Liberty\HtmlBuilder\Main\GetParent;
 
 class A extends AbstractElement
 {
-    use Charset, Coords, Download, Href, Text, Media, Hreflang, Name, Ping, Rev, Rel, Shape, GlobalAttributesAndEvents;
+    use Charset, Coords, Download, Href, AddText, Media, Hreflang,
+        Name, Ping, Rev, Rel, Shape, GlobalAttributesAndEvents;
 
-    public function __toString(): string
+    use Children, GetParent, StringElements, AddText;
+
+    public function __construct(?AbstractElement $parent = null)
     {
-        return $this->stringify('a');
+        parent::__construct($parent);
+        $this->tagName = 'a';
     }
 }

@@ -14,6 +14,7 @@ use Liberty\HtmlBuilder\Attributes\Name;
 use Liberty\HtmlBuilder\Attributes\ObjectAttr;
 use Liberty\HtmlBuilder\Attributes\Vspace;
 use Liberty\HtmlBuilder\Attributes\Width;
+use Liberty\HtmlBuilder\Elements\StringElements;
 use Liberty\HtmlBuilder\Globals\Attributes\Accesskey;
 use Liberty\HtmlBuilder\Globals\Attributes\Contenteditable;
 use Liberty\HtmlBuilder\Globals\Attributes\Contextmenu;
@@ -31,8 +32,10 @@ use Liberty\HtmlBuilder\Globals\Attributes\Tabindex;
 use Liberty\HtmlBuilder\Globals\Attributes\Title;
 use Liberty\HtmlBuilder\Globals\Attributes\Translate;
 use Liberty\HtmlBuilder\Globals\Attributes\XmlLang;
-use Liberty\HtmlBuilder\Globals\GlobalEvents;
 use Liberty\HtmlBuilder\Main\AbstractElement;
+use Liberty\HtmlBuilder\Main\AddText;
+use Liberty\HtmlBuilder\Main\Children;
+use Liberty\HtmlBuilder\Main\GetParent;
 
 class Applet extends AbstractElement
 {
@@ -40,11 +43,11 @@ class Applet extends AbstractElement
         SetClass, Contenteditable, Contextmenu, Dir, Draggable, Dropzone, Hidden, Id, Inert, Lang, Spellcheck,
         Style, Tabindex, Title, Translate, XmlLang;
 
-    /**
-     * @inheritDoc
-     */
-    public function __toString(): string
+    use Children, GetParent, StringElements, AddText;
+
+    public function __construct(?AbstractElement $parent = null)
     {
-        return $this->stringify('applet');
+        parent::__construct($parent);
+        $this->tagName = 'applet';
     }
 }

@@ -12,11 +12,25 @@ class HTML extends AbstractElement
 {
     use GlobalAttributesAndEvents, Children;
 
+    private static ?HTML $instance = null;
+
+    private function __construct()
+    {
+        parent::__construct();
+        $this->tagName = 'html';
+    }
+
+    public static function instance():HTML{
+        if(self::$instance == null){
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
     public function __toString(): string
     {
-        $str = '<!DOCTYPE>';
-        $tagName = 'html';
-        $str .= '<' . $tagName;
+        $str = '<!DOCTYPE>' . $this->getTabs();
+        $str .= '<' . $this->tagName;
         $str .= $this->getAttrString();
         $str .= '>';
         $head = $this->getTag('head');
@@ -27,7 +41,7 @@ class HTML extends AbstractElement
         if ($body) {
             $str .= $body;
         }
-        $str .= '</' . $tagName . '>';
+        $str .= $this->getTabs() . '</' . $this->tagName . '>';
         return $str;
     }
 
