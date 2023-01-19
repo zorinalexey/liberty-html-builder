@@ -8,11 +8,11 @@ use Liberty\HtmlBuilder\Globals\GlobalAttributesAndEvents;
 use Liberty\HtmlBuilder\Main\AbstractElement;
 use Liberty\HtmlBuilder\Main\Children;
 
-class HTML extends AbstractElement
+final class HTML extends AbstractElement
 {
     use GlobalAttributesAndEvents, Children;
 
-    private static ?HTML $instance = null;
+    private static self|null $instance = null;
 
     private function __construct()
     {
@@ -20,8 +20,9 @@ class HTML extends AbstractElement
         $this->tagName = 'html';
     }
 
-    public static function instance():HTML{
-        if(self::$instance == null){
+    public static function instance(): self
+    {
+        if (self::$instance === null) {
             self::$instance = new self();
         }
         return self::$instance;
@@ -34,13 +35,9 @@ class HTML extends AbstractElement
         $str .= $this->getAttrString();
         $str .= '>';
         $head = $this->getTag('head');
-        if ($head) {
-            $str .= $head;
-        }
+        $str .= $head;
         $body = $this->getTag('body');
-        if ($body) {
-            $str .= $body;
-        }
+        $str .= $body;
         $str .= $this->getTabs() . '</' . $this->tagName . '>';
         return $str;
     }
@@ -71,6 +68,7 @@ class HTML extends AbstractElement
         return $this->content['body'];
     }
 
+    /** @noinspection PhpUnused */
     public function childs(string|null $tagName = null): false|array|AbstractElement
     {
         return $this->children[$tagName][1] ?? false;

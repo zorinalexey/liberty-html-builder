@@ -4,6 +4,7 @@ namespace Liberty\HtmlBuilder\Elements\Strings;
 
 use Liberty\HtmlBuilder\Elements\StringElements;
 use Liberty\HtmlBuilder\Globals\Attributes\Dir;
+use Liberty\HtmlBuilder\Globals\Attributes\Id;
 use Liberty\HtmlBuilder\Globals\Attributes\Lang;
 use Liberty\HtmlBuilder\Globals\Attributes\SetClass;
 use Liberty\HtmlBuilder\Globals\Attributes\Style;

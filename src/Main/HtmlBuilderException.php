@@ -22,7 +22,7 @@ class HtmlBuilderException extends Exception
         $messages = "\n backtrace : \n";
         $step = 0;
         foreach (debug_backtrace() as $key => $trace) {
-            if ($key > 2) {
+            if ($key >= 2) {
                 $step++;
                 $messages .= $step . ")\t file - " . $trace['file'] . " line - " . $trace['line'] . "\n";
                 $messages .= "\t class - " . $trace['class'] . $trace['type'];

@@ -1,9 +1,11 @@
-<?php
+<?php /** @noinspection ALL */
 
 namespace Liberty\HtmlBuilder\Main;
 
 /**
  *
+ * @method children(string|null $tagName)
+ * @noinspection MethodShouldBeFinalInspection
  */
 abstract class AbstractElement
 {
@@ -36,7 +38,7 @@ abstract class AbstractElement
     /**
      * @var AbstractElement|null
      */
-    protected ?AbstractElement $parent = null;
+    protected self|null $parent = null;
     /**
      * @var string
      */
@@ -45,7 +47,7 @@ abstract class AbstractElement
     /**
      * @param AbstractElement|null $parent
      */
-    public function __construct(AbstractElement|null $parent = null)
+    public function __construct(self|null $parent = null)
     {
         if ($parent) {
             $this->parent = $parent;
@@ -55,9 +57,10 @@ abstract class AbstractElement
 
     /**
      * Получить потомков
-     * @param string $tagName
+     * @param string|null $tagName
+     * @return false|array|AbstractElement
      */
-    public function childs(string|null $tagName = null): false|array|AbstractElement
+    public function child(string|null $tagName = null): false|array|self
     {
         return $this->children($tagName);
     }
@@ -65,9 +68,9 @@ abstract class AbstractElement
     /**
      * @return string
      */
-    public function render(): string
+    final public function render(): string
     {
-        return $this->__toString();
+        return (string)$this;
     }
 
     public function __toString(): string
@@ -78,8 +81,9 @@ abstract class AbstractElement
     /**
      * @param string $tagName
      * @return string
+     * @noinspection MethodVisibilityInspection
      */
-    protected function stringify(string $tagName): string
+    final protected function stringify(string $tagName): string
     {
         $str = $this->getTabs() . '<' . $tagName;
         $str .= $this->getAttrString();
@@ -92,21 +96,22 @@ abstract class AbstractElement
         return $str;
     }
 
-    public function getTabs(): string
+    final public function getTabs(): string
     {
         if ($this->parent && $this->format) {
             return $this->parent->getTabs() . "\t";
-        } elseif (!$this->parent && $this->format) {
-            return "\n";
-        } else {
-            return '';
         }
+        if (!$this->parent && $this->format) {
+            return "\n";
+        }
+        return '';
     }
 
     /**
      * @return string
+     * @noinspection MethodVisibilityInspection
      */
-    protected function getAttrString(): string
+    final protected function getAttrString(): string
     {
         $str = '';
         foreach ($this->attributes as $key => $value) {
@@ -119,7 +124,7 @@ abstract class AbstractElement
         return $str;
     }
 
-    protected function getContentString(): string
+    final  protected function getContentString(): string
     {
         $str = '';
         foreach ($this->content as $element) {
@@ -132,6 +137,7 @@ abstract class AbstractElement
         return $str;
     }
 
+    /** @noinspection MissingParameterTypeDeclarationInspection */
     private function formatContent($element): string
     {
         if (is_string($element)) {
@@ -140,29 +146,10 @@ abstract class AbstractElement
         return $element;
     }
 
-    public function __get($name)
-    {
-        return HtmlBuilderException::propertyNotFound(__CLASS__ . '::' . $name);
-    }
-
-    public function __set($name, $value)
-    {
-        return HtmlBuilderException::propertyNotFound(__CLASS__ . '::' . $name);
-    }
-
-    public function __call($name, $arguments)
-    {
-        return HtmlBuilderException::methodNotFound(__CLASS__ . '::' . $name);
-    }
-
-    public function __call_static($name, $arguments)
-    {
-        return HtmlBuilderException::methodNotFound(__CLASS__ . '::' . $name);
-    }
-
     /**
      * Получить атрибуты элемента
      * @return array
+     * @noinspection MethodShouldBeFinalInspection
      */
     public function getAttributes(): array
     {
@@ -170,11 +157,12 @@ abstract class AbstractElement
     }
 
     /**
-     * Включить форматированый вывод html
+     * Включить|выключить форматированый вывод html
      * @param bool $format
      * @return $this
+     * @noinspection MethodShouldBeFinalInspection
      */
-    public function format(bool $format = true): self
+    final public function format(bool $format = true): self
     {
         $this->format = $format;
         return $this;
@@ -184,7 +172,7 @@ abstract class AbstractElement
      * @param string $className
      * @return AbstractElement
      */
-    protected function getTag(string $className): AbstractElement
+    final protected function getTag(string $className): AbstractElement
     {
         if (!isset($this->content[$className])) {
             $obj = new $className($this);
