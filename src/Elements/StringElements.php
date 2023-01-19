@@ -7,6 +7,7 @@ use Liberty\HtmlBuilder\Elements\Strings\Abbr;
 use Liberty\HtmlBuilder\Elements\Strings\Acronym;
 use Liberty\HtmlBuilder\Elements\Strings\Address;
 use Liberty\HtmlBuilder\Elements\Strings\Applet;
+use Liberty\HtmlBuilder\Elements\Strings\Basefont;
 use Liberty\HtmlBuilder\Elements\Strings\Bdo;
 use Liberty\HtmlBuilder\Elements\Strings\Br;
 use Liberty\HtmlBuilder\Elements\Strings\Font;
@@ -74,5 +75,10 @@ trait StringElements
     final public function bdo(): Bdo
     {
         return $this->getTag(Bdo::class);
+    }
+
+    final public function basefont(): Basefont
+    {
+        return $this->getTag(Basefont::class);
     }
 }

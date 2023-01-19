@@ -14,10 +14,10 @@ trait Face
      */
     public function face(string $face): self
     {
-        if (!isset($this->attributes['ping'])) {
-            $this->attributes['ping'] = $face;
+        if (!isset($this->attributes['face'])) {
+            $this->attributes['face'] = $face;
         } else {
-            $this->attributes['ping'] .= ', ' . $face;
+            $this->attributes['face'] .= ', ' . $face;
         }
         return $this;
 
