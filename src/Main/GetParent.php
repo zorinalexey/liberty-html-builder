@@ -13,6 +13,7 @@ trait GetParent
         if ($this->parent) {
             return $this->parent;
         }
+
         return $this;
     }
 }

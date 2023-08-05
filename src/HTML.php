@@ -25,6 +25,7 @@ final class HTML extends AbstractElement
         if (self::$instance === null) {
             self::$instance = new self();
         }
+
         return self::$instance;
     }
 
@@ -39,6 +40,7 @@ final class HTML extends AbstractElement
         $body = $this->getTag('body');
         $str .= $body;
         $str .= $this->getTabs() . '</' . $this->tagName . '>';
+
         return $str;
     }
 
@@ -51,7 +53,9 @@ final class HTML extends AbstractElement
             $obj = new Head($this);
             $this->content['head'] = $obj;
         }
+        
         $this->children['head'][1] = $this->content['head'];
+
         return $this->content['head'];
     }
 
@@ -65,14 +69,14 @@ final class HTML extends AbstractElement
             $this->content['body'] = $obj;
         }
         $this->children['body'][1] = $this->content['body'];
+
         return $this->content['body'];
     }
 
     /** @noinspection PhpUnused */
-    public function childs(string|null $tagName = null): false|array|AbstractElement
+    public function childs(string | null $tagName = null): false | array | AbstractElement
     {
         return $this->children[$tagName][1] ?? false;
     }
-
 
 }

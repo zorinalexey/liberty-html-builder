@@ -15,6 +15,7 @@ trait GlobalAttributesAndEvents
     public function addAttrubute(string $attrName, $attrValue): self
     {
         $this->attributes[$attrName] = $attrValue;
+        
         return $this;
     }
 }

@@ -33,6 +33,7 @@ class HtmlBuilderException extends Exception
                 }
             }
         }
+
         return $messages;
     }
 

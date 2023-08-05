@@ -21,5 +21,5 @@ use Liberty\HtmlBuilder\Globals\Events\Onunload;
 trait WindowEvents
 {
     use Onafterprint, Onbeforeprint, Onbeforeunload, Onerror, Onhashchange, Onload, Onmessage,
-        Onoffline, Ononline, Onpagehide, Onpageshow, Onpopstate, Onresize, Onstorage, Onunload;
+    Onoffline, Ononline, Onpagehide, Onpageshow, Onpopstate, Onresize, Onstorage, Onunload;
 }

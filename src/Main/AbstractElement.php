@@ -47,7 +47,7 @@ abstract class AbstractElement
     /**
      * @param AbstractElement|null $parent
      */
-    public function __construct(self|null $parent = null)
+    public function __construct(self | null $parent = null)
     {
         if ($parent) {
             $this->parent = $parent;
@@ -60,7 +60,7 @@ abstract class AbstractElement
      * @param string|null $tagName
      * @return false|array|AbstractElement
      */
-    public function child(string|null $tagName = null): false|array|self
+    public function child(string | null $tagName = null): false | array | self
     {
         return $this->children($tagName);
     }
@@ -70,7 +70,7 @@ abstract class AbstractElement
      */
     final public function render(): string
     {
-        return (string)$this;
+        return (string) $this;
     }
 
     public function __toString(): string
@@ -87,12 +87,14 @@ abstract class AbstractElement
     {
         $str = $this->getTabs() . '<' . $tagName;
         $str .= $this->getAttrString();
+
         if ($this->close) {
             $str .= '>' . $this->getContentString();
             $str .= $this->getTabs() . '</' . $tagName . '>';
         } else {
             $str .= '/>';
         }
+
         return $str;
     }
 
@@ -104,6 +106,7 @@ abstract class AbstractElement
         if (!$this->parent && $this->format) {
             return "\n";
         }
+
         return '';
     }
 
@@ -115,19 +118,22 @@ abstract class AbstractElement
     {
         $str = '';
         foreach ($this->attributes as $key => $value) {
+
             if (is_bool($value) and $value === true) {
                 $str .= ' ' . strtolower($key);
             } elseif ($value !== null and !empty($value)) {
                 $str .= ' ' . strtolower($key) . '="' . str_replace('"', "'", $value) . '"';
             }
         }
+
         return $str;
     }
 
-    final  protected function getContentString(): string
+    final protected function getContentString(): string
     {
         $str = '';
         foreach ($this->content as $element) {
+
             if ($this->format) {
                 $str .= $this->formatContent($element);
             } else {
@@ -143,6 +149,7 @@ abstract class AbstractElement
         if (is_string($element)) {
             return $this->getTabs() . "\t" . str_replace(["\n", "\s"], '', $element);
         }
+
         return $element;
     }
 
@@ -165,6 +172,7 @@ abstract class AbstractElement
     final public function format(bool $format = true): self
     {
         $this->format = $format;
+
         return $this;
     }
 
@@ -178,14 +186,17 @@ abstract class AbstractElement
             $obj = new $className($this);
             $this->content[$className] = $obj;
         }
+
         $tagName = preg_replace('~(.+)\\\\(\w+)$~ui', '$2', strtolower($className));
         $count = 1;
+
         if (isset($this->children[$tagName])) {
             $count = count($this->children[$tagName]) + 1;
         }
+
         $this->children[$tagName][$count] = $this->content[$className];
+
         return $this->content[$className];
     }
-
 
 }

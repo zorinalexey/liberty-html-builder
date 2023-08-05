@@ -27,8 +27,8 @@ use Liberty\HtmlBuilder\Globals\Attributes\XmlLang;
 
 trait GlobalAttributes
 {
-// Attributes
+    // Attributes
     use Accesskey, Contenteditable, Contextmenu, Dir, Draggable, Dropzone, Hidden,
-        Id, Inert, Itemid, Itemprop, Itemref, Itemscope, Itemtype, Lang, SetClass,
-        Spellcheck, Style, Tabindex, Title, Translate, XmlLang;
+    Id, Inert, Itemid, Itemprop, Itemref, Itemscope, Itemtype, Lang, SetClass,
+    Spellcheck, Style, Tabindex, Title, Translate, XmlLang;
 }

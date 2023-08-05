@@ -16,6 +16,7 @@ trait Children
         if (!$tagName) {
             return $this->children;
         }
+        
         return $this->children[$tagName] ?? false;
     }
 }
